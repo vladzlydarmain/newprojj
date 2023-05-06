@@ -1,0 +1,68 @@
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'shopapp/cool_style.css' %}" />
+    <script src="{% static 'shopapp/main_cool_script.js' %}" defer></script>
+    <script src="{% static 'shopapp/jquery-3.6.4.js' %}" defer></script>
+    <script src="{% static 'shopapp/realy_cool_ajax.js' %}" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="url" value="{% url 'catalog' %}" hidden>
+    <div class="name-of-shop">
+      <center><h1>PECHEN-ka SHOP</h1></center>
+      <center><h3>для тебе тільки відбірне ПЕЧІНЬ-ИВО</h3></center>
+    </div>
+    <div class="catalog">
+        {% for i in products %}
+        <div class="product">
+          <form method="POST" class = "forma">
+            {% csrf_token %}
+            <input id="csrf" type="text" value="{{ csrf_token }}" hidden>
+            <img src="{{ i.image.url }}" alt="тут могла бути ваша печінка">
+            <div class="product-down">
+              <p class="vendor-code">Артикул:{{ i.pk }}</p><input type="text" class="article" value="{{ i.pk }}" hidden>
+              <p class = "nname">{{ i.name }}</p><input type="text" value="{{i.name}}" class="name" hidden>
+              <p class = "pprice">{{ i.price }} ₴</p><input type="text" value = "{{ i.price }}" class="price" hidden>
+              <!-- <div class="korzina">
+                <button class="buy"><img src="{% static 'shopapp/2849824_store_shopping_market_buy_shop_icon.png' %}" alt="buy"></button>
+              </div> -->
+              
+            </div>
+          </form>
+          <div class="down">
+            <div class="korzina">
+              <button class="buy"><img src="{% static 'shopapp/2849824_store_shopping_market_buy_shop_icon.png' %}" alt="buy"></button>
+            </div>
+            <div class="counter">
+              <button class="minus">-</button>
+              <p class="amount">1</p><input type="text" class="value" value="1" hidden>
+              <button class="plus">+</button>
+            </div>
+          </div>
+          <!-- <div class="korzina">
+            <button class="buy"><img src="{% static 'shopapp/2849824_store_shopping_market_buy_shop_icon.png' %}" alt="buy"></button>
+          </div>
+          <div class="counter">
+            <button class="minus">-</button>
+            <p class="amount">1</p><input type="text" class="value" value="1" hidden>
+            <button class="plus">+</button>
+          </div> -->
+
+        </div>
+        {% endfor %}
+    </div>
+    <div class="modal-wrapper" hidden>
+      <div class="modal-window">
+        <center><p >nu tip modalnoe okno</p></center>
+        <center><div class="button-div">
+          <a class="korzina-url" href="{% url 'basket' %}">до кошика</a>
+          <button class="stay">залишитсь</button>
+        </div></center>
+      </div>
+    </div>
+  </body>
+</html>

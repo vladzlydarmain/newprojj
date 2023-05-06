@@ -1,0 +1,267 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+
+body {
+    background: linear-gradient(180deg, #FFFFFF 0%, #CCFFC4 0.01%, #FF5C5C 100%);
+    background-color: #FF5C5C ;
+    background-repeat:no-repeat;
+    background-size: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 100%;
+    height:100%;
+    justify-content:space-between;
+    align-items: center;
+    /* position: relative; */
+
+}
+
+.shapka {
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 29px 235px;
+    gap: 33px;
+
+    width: 100%;
+    height: 10%;
+
+
+    background: #FFFFFF;
+    border-bottom: 3px solid #FFA63E;
+}
+
+.info{
+    height: 10%;
+}
+.info p{
+    font-size: x-large;
+}
+
+
+.basket-div{
+    height:fit-content;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+.basket-form {
+    margin: 20px;
+    box-sizing: border-box;
+
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+
+    width: 350px;
+
+    background: #FFFFFF;
+
+    border: 3px solid #B46304;
+    border-radius: 30px;
+
+    /* Inside auto layout */
+}
+.product-in-basket{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    box-sizing: border-box;
+
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+
+    width: 350px;
+    height: 350px;
+
+    background: #FFFFFF;
+
+    border: 3px solid #B46304;
+    border-radius: 30px;
+}
+
+.podval {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+    align-items: center;
+    width: 100%;
+    height:100px;
+    background: #FFFFFF;
+}
+
+.input-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    gap: 4px;
+
+    width: 300px;
+    height: 65px;
+}
+
+.field {
+    box-sizing: border-box;
+
+    width: 286px;
+    height: 35px;
+
+    border: 2px solid #FFA63E;
+    border-radius: 5px;
+}
+
+.type-delivery {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+
+    width: 300px;
+    height: 100px;
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* padding: 0px 10px; */
+    gap: 4px;
+
+    width: 294px;
+    height: 150px;
+}
+
+.cool-textarea {
+    box-sizing: border-box;
+
+    width: 290px;
+    height: 100px;
+
+    border: 2px solid #FFA63E;
+    border-radius: 5px;
+    resize: none;
+}
+
+.agreements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 5px 9px; */
+    gap: 10px;
+    width: 294px;
+}
+
+.order-button {
+    display: flex;
+    gap: 10px;
+    text-align: center;
+    justify-content: center;
+    padding-top: 5%;
+    width: 218px;
+    height: 50px;
+    transition: 0.2s;
+
+    background: #FFA63E;
+    border-radius: 30px;
+}
+
+.order-button:hover{
+    background: #f1a248;   
+}
+
+.prod-image{
+    width: 100px;
+    height: 100px;
+    border-radius: 30%;
+    border: 2px solid #FFA63E;
+}
+
+.product-div{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+    gap: 10px;
+}
+
+.prod-info{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    column-gap: 10px;
+}
+
+.buy-more p{
+    font-size: large;
+}
+
+.counter{
+    box-sizing: border-box;
+
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 10px;
+    gap: 20px;
+
+    width: 107px;
+    height: 33px;
+
+    border: 2px solid #FFA63E;
+    border-radius: 10px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.minus {
+    background: none;
+    border-radius: 15px;
+    border: none;
+}
+.plus {
+    background: none;
+    border-radius: 15px;
+    border: none;
+}
+
+
+.basket-list{
+    overflow-y:scroll;
+    max-height: 150px;
+    width: 300px;
+}
+
+.cross{
+    background-color: white;
+    height: 10px;
+    width: 10px;
+    text-align: end;
+    border: none;
+    top: 0;
+}

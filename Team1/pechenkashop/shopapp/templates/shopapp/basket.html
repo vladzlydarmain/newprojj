@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'shopapp/style_basket.css' %}">
+    <script src = "{% static 'shopapp/basket_cool_script.js' %}" defer></script>
+</head>
+<body>
+    <header class="shapka">
+        <span class="name"><img src="" alt="Pechenka Shop"></span> <span class="catalog">Каталог</span> <span class="review">Відгук</span> <span class="location">Локація</span> <span class="delivery">Доставка</span> <span class="contacts">Контакти</span> <span>+380939356327</span>
+    </header>
+    <main>
+        <div class="basket-div">
+            <div class="basket-form">
+                <div class="info">
+                    <p >Інформація про одержувача</p>
+                </div>
+                <div class="about-you">
+                    <div class="input-div">
+                        <p>Ім’я</p>
+                        <input class="field">
+                    </div>
+
+                    <div class="input-div">
+                        <p>Прізвище</p>
+                        <input class="field">
+                    </div>
+
+                    <div class="input-div">
+                        <p>По-батькові</p>
+                        <input class="field">
+                    </div>
+
+                    <div class="input-div">
+                        <p>Телефон</p>
+                        <input class="field">
+                    </div>
+
+                    <div class="input-div">
+                        <p>Електронна пошта</p>
+                        <input class="field">
+                    </div>
+                </div>
+
+                <div class="type-delivery">
+                    <p>Спосіб отримання</p>
+                    <span> <input type="radio" name="knopka" value="poshta"> Нова Пошта</span>
+                    <span> <input type="radio" name="knopka" value="ukr"> Укрпошта</span>
+                    <span> <input type="radio" name="knopka" value="sam"> Самовивіз</span>
+                </div>
+
+                <div class="comments">
+                    <p>Коментар до замовлення</p>
+                    <textarea class="cool-textarea"></textarea>
+                </div>
+
+                <div class="agreements">
+                    <span> <input type="checkbox" value="poshta"> Підтвердити замовлення</span>
+                    <span> <input type="checkbox" value="poshta"> Погоджуюсь з угодою користувача</span>
+                </div>
+
+                <button class="order-button">Замовити</button>
+
+            </div>
+
+            <div class="product-in-basket">
+                <div class="basket-list">
+                    {% for i in products %}
+                        <div class="product-div">
+                            <img class="prod-image" src="{{ i.0.image.url }}" alt="ваша печінка">
+                            <div class="prod-info">
+                                <p class="vendor-code">Артикул: {{ i.0.pk }}</p>
+                                <p class="prod-name">{{ i.0.name }}</p>
+                                <div class="counter">
+                                    <button class="minus">-</button>
+                                    <p class="amount">{{ i.1 }}</p> <input type="text" class="value" value="1" hidden>
+                                    <button class="plus">+</button>
+                                </div>
+                                <p class="prod-price">{{ i.0.price }} ₴</p>
+                            </div>
+                            <form method = 'POST'>
+                                {% csrf_token %}
+                                <button class="cross" name = "cross" value="{{i.0.pk}}">&#10006</button>
+                            </form>
+                        </div>
+                    {% endfor %} 
+                    
+                </div>
+                <div class="total-price-div">
+                    <p class="total-price">Підсумок: <span>0</span></p>
+                </div>
+                <div class="buy-more">
+                    <center><p>Бажаєте щось додати?</p></center>
+                    <center><a href="{% url 'catalog' %}">До каталогу</a></center>
+                    <form action="{% url 'catalog' %}" target="_blank">
+                        <button class="order-button">Замовити</a></button>
+                    </form>
+                    <!-- <button class="order-button"><a href="{% url 'catalog' %}">До каталогу</a></button> -->
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="podval">
+        <h1 class="name"></h1> <span>Київська обл., м. Буча, вул. Заводська, 2-в</span> <span>09:00–18:00</span> <span>Ми у соцмережах</span>
+    </footer>
+</body>
+</html>
